@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head> 
+        <title>JSF Html Tag h:selectOneListbox</title>
+    </h:head>
+    <h:body>
+        <h1>JSF Html Tag h:selectOneListbox</h1>
+        <h:form>
+
+            1. h:selectOneListbox içindekileri kendimiz elimiz ile doldurduk. 
+            <h:selectOneListbox value="#{yb.tarih1}" required="true">
+                <f:selectItem itemValue="1299" 
+                              itemLabel="Osmanlı İmparatorluğunun Kuruluş Tarihi" />
+
+                <f:selectItem itemValue="1453" 
+                              itemLabel="İstanbul'un Fetih Tarihi" />
+
+                <f:selectItem itemValue="1517" 
+                              itemLabel="Mısır'ın Fetih Tarihi" />
+            </h:selectOneListbox>
+            <br />
+
+            2. h:selectOneListbox içini Map Haritalama ile doldurduk.
+            <h:selectOneListbox value="#{yb.tarih2}" required="true">
+                <f:selectItems value="#{yb.tarih2DegerleriniAl}" />
+            </h:selectOneListbox>
+
+            <br />
+
+            3. h:selectOneListbox içini bir sınıf ve nesne ile doldurduk.
+            <h:selectOneListbox value="#{yb.tarih3}" required="true">
+                <f:selectItems value="#{yb.tarih3DegerleriniAl}" 
+                               var="t"
+                               itemLabel="#{t.yilEtiketi}" 
+                               itemValue="#{t.yilDegeri}" />
+            </h:selectOneListbox>
+
+            <br />
+
+
+            <h:commandButton value="Temizle" type="reset" />
+            <h:commandButton value="Gönder" action="sayfa2" />
+
+        </h:form>
+    </h:body>
+</html>
